@@ -1,0 +1,16 @@
+@import url("carousel.css");
+@import url("cargando.css");
+@import url("lista.css");
+
+
+.img-logo {
+  height: 50px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
