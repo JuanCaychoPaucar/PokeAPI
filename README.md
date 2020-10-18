@@ -2,9 +2,9 @@
 
 ------------
 
-<p align="center">Este proyecto usa la API oficial de Pokemon ([PokeAPI](https://pokeapi.co/))</p>
+<p align="center">Este proyecto usa la API oficial de Pokemon <a href="https://pokeapi.co/">PokeAPI</a></p>
 
-<p align="center">Puedes ver el proyecto en vivo [aquí](https://juancaychopaucar.github.io/PokeAPI/lista.html)</p>
+<p align="center">Puedes ver el proyecto en vivo <a href="https://juancaychopaucar.github.io/PokeAPI/lista.html">aquí</a></p>
 
 ##### Tecnologías usadas:
 - HTML5
