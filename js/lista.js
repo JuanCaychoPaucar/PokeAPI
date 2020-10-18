@@ -29,7 +29,7 @@ selectListado.onchange = (e) => {
 
 // DIBUJAR LISTADO POKEMON
 const dibujarListadoPokemon = (arreglo) => {
-  //borramos los cards de polemones
+  //borramos los cards de pokemones
   listadoPokemon.innerHTML = "";
 
   //botones
@@ -78,10 +78,11 @@ const dibujarListadoPokemon = (arreglo) => {
           "shadow-sm",
           "bg-white",
           "rounded",
-          "border-0"
+          "border-0",
+          "tarjetaPokemon"
         );
-        listadoCardFigure.classList.add("a");
-        listadoCardImagen.classList.add("card-img-top", "p-3");
+        listadoCardFigure.classList.add("a", "figura");
+        listadoCardImagen.classList.add("card-img-top", "p-3", "imagen");
         listadoCardBody.classList.add("card-body");
         listadoNombrePokemon.classList.add(
           "card-text",
@@ -106,7 +107,7 @@ const getListadoPokemon = (enlace) => {
 
   fetch(enlace).then((peticion) => {
     peticion.json().then((data) => {
-      console.log(data.results);
+      // console.log(data.results);
       dibujarListadoPokemon(data);
       cargando.setAttribute("hidden",true);
     });

@@ -5,3 +5,13 @@
 .lista-nombre {
   font-size: 1.3rem;
 }
+
+.tarjetaPokemon{
+  height: 400px;
+  cursor: pointer;
+}
+
+.figura, .imagen{
+  width: 100%;
+  height: 310px;
+}
