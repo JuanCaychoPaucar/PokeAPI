@@ -8,7 +8,8 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
 
     <!-- FLICKITY CSS -->
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
 
     <!-- OWN CSS -->
     <link rel="stylesheet" href="./css/style.css">
@@ -53,44 +54,26 @@
     <main class="container">
 
         <!-- INICIO CAROUSEL -->
-        <section class="row">
-            <div class="col-12">
-                <div class="main-carousel" id="miCarrusel">
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/dddddd" alt=""></div>
-                    <div class="carousel-cell"><img src="https://via.placeholder.com/400x200/ffffff" alt=""></div>
+        <section id="carousel-container">
+
+            <!-- Flickity HTML init -->
+            <!-- <div class="carousel" id="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1 }'>
+                <div class="carousel-cell" id="carousel-cell">
+                    <img class="carousel-cell-image" id="carousel-cell-image"
+                        data-flickity-lazyload="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" />
                 </div>
+                <div class="carousel-cell" id="carousel-cell">
+                    <img class="carousel-cell-image" id="carousel-cell-image"
+                        data-flickity-lazyload="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" />
+                </div>
+            </div> -->
+            <!-- Flickity HTML end -->
+
+            <div class="carousel" id="carousel">
+                <!-- AQUI VA EL CONTENIDO RECUPERADO -->
             </div>
         </section>
         <!-- FIN CAROUSEL -->
-
-        <section class="row">
-            <div class="col-12">
-                <div class="col-md-3">
-                    <div class="card">
-                        <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg" alt="">
-                        <div class="card-body">
-                            <p class="card-text">Pikachu</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
 
     </main>
     <!-- FIN CONTENIDO -->
@@ -107,11 +90,12 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-    <!-- FLICKITY JavaScript -->
+    <!-- FLICKITY JS -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/flickity-fullscreen@1/fullscreen.js"></script>
 
     <!-- OWN JS -->
-    <script src="./js/pokemon.js"></script>
+    <script src="./js/carousel.js" type="module"></script>
 </body>
 
 </html>
