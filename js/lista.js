@@ -10,6 +10,23 @@ const listadoPokemon = document.getElementById("listado-pokemon");
 const btnAnterior = document.getElementById("btnAnterior");
 const btnSiguiente = document.getElementById("btnSiguiente");
 
+// EN ESTA VARIABLE GUARDAREMOS TODAS LAS ETIQUETAS img DE LA LISTA RECUPERADA DEL ENDPOINT
+let images = "";
+
+// FUNCION LAZY IMAGES. CAMBIA EL ATRIBUTO data-lazy POR EL DE src (que es propio de HTML)
+const lazyImage = (entries, observer) => {
+  entries
+    .filter((entry) => entry.isIntersecting)
+    .forEach((entry) => {
+      const img = entry.target;
+      const src = img.getAttribute("data-lazy");
+
+      img.setAttribute("src", src);
+      observer.disconnect();
+      console.log("load");
+    });
+};
+
 // SELECT LISTADO
 const setPaginacion = (limit) => {
   getListadoPokemon(
@@ -87,16 +104,27 @@ const dibujarListadoPokemon = (arreglo) => {
       if (data.sprites.other.dream_world.front_default === null) {
         if (data.sprites.other["official-artwork"].front_default === null) {
           if (data.sprites.front_default === null) {
-            listadoCardImagen.src = "../img/Pokeball girando.gif";
+            listadoCardImagen.setAttribute(
+              "data-lazy",
+              "../img/Pokeball girando.gif"
+            );
           } else {
-            listadoCardImagen.src = data.sprites.front_default;
+            listadoCardImagen.setAttribute(
+              "data-lazy",
+              data.sprites.front_default
+            );
           }
         } else {
-          listadoCardImagen.src =
-            data.sprites.other["official-artwork"].front_default;
+          listadoCardImagen.setAttribute(
+            "data-lazy",
+            data.sprites.other["official-artwork"].front_default
+          );
         }
       } else {
-        listadoCardImagen.src = data.sprites.other.dream_world.front_default;
+        listadoCardImagen.setAttribute(
+          "data-lazy",
+          data.sprites.other.dream_world.front_default
+        );
       }
 
       listadoNombrePokemon.innerText = data.name;
@@ -132,6 +160,16 @@ const dibujarListadoPokemon = (arreglo) => {
       divFalso.appendChild(listadoContenedorCard);
     });
     listadoPokemon.appendChild(divFalso);
+
+    // UNA VEZ COLOCADO LA DATA EN EL DOM, PROCEDEMOS A SELECCIONAR TODAS LAS ETIQUETAS img Y ALMACENARLAS EN LA VARIABLE images
+    images = document.querySelectorAll("img");
+
+    // REALIZAMOS UN FOREACH
+    images.forEach((img) => {
+      // REALIZAMOS UN CALLBACK A LA FUNCION lazyImage
+      const observer = new IntersectionObserver(lazyImage);
+      observer.observe(img);
+    });
     cargando.setAttribute("hidden", true);
   });
 };
@@ -154,6 +192,5 @@ getListadoPokemon(`${URL_BACKEND}${URL_RESOURCE}?offset=0&limit=${limit}`).then(
     console.log(resultado.results);
     console.log(resultado);
     dibujarListadoPokemon(resultado);
-    
   }
 );
